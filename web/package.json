@@ -1,6 +1,6 @@
 {
-    "name": "thali-address-book",
-    "description": "Thali Addressbook Application",
+    "name": "thali-application-seed",
+    "description": "Thali Application Seed",
     "version": "0.0.1",
     "private": true,
     "Author" : "Ivan R. Judson",
