@@ -20,6 +20,8 @@ import com.msopentech.thali.utilities.java.JavaEktorpCreateClientBuilder;
 import java.awt.*;
 import java.io.Console;
 import java.io.File;
+import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -80,14 +82,17 @@ public class ProxyDesktop  {
     public void initialize()
     {
         // Initialize the relay
+        Path applicationPath = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getFile());
+        Path webPath = applicationPath.getParent().getParent().resolve("web");
+
         try {
-            server = new RelayWebServer(new JavaEktorpCreateClientBuilder(), new File(System.getenv("APP_HOME")));
+            server = new RelayWebServer(new JavaEktorpCreateClientBuilder(), webPath.toFile());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // Initialize the local web server
-        File webRoot = new File(new File(System.getenv("APP_HOME")), "web");
+        File webRoot = webPath.toFile();
         System.out.println("Setting web root to: " + webRoot);
         host = new SimpleWebServer("localhost", localWebserverPort, webRoot, false);
 
