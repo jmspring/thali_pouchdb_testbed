@@ -20,6 +20,7 @@ import com.msopentech.thali.utilities.java.JavaEktorpCreateClientBuilder;
 import java.awt.*;
 import java.io.Console;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.nio.file.Paths;
 import java.nio.file.Path;
 import java.io.IOException;
@@ -79,10 +80,11 @@ public class ProxyDesktop  {
         host.stop();
     }
 
-    public void initialize()
-    {
+    public void initialize() throws URISyntaxException, MalformedURLException {
         // Initialize the relay
-        Path applicationPath = Paths.get(getClass().getProtectionDomain().getCodeSource().getLocation().getFile());
+        String filePath = getClass().getProtectionDomain().getCodeSource().getLocation().getFile();
+        File file = new File(filePath);
+        Path applicationPath = file.toPath();
         Path webPath = applicationPath.getParent().getParent().resolve("web");
 
         try {
