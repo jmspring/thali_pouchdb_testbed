@@ -7,7 +7,7 @@
   <property name="lib" value="lib" />
 
   <!-- Crosswalk Android version -->
-  <property name="crosswalk-version" value="4.32.76.6" />
+  <property name="crosswalk-version" value="6.35.131.13" />
 
   <!-- location of downloaded Crosswalk Android file -->
   <property name="crosswalk-zip" value="${lib}/crosswalk.zip" />
