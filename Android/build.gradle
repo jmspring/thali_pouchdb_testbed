@@ -21,7 +21,7 @@ ant.importBuild 'src/build.xml'
 
 dependencies {
     compile "com.msopentech.thali:ThaliUtilitiesUniversal:0.0.2"
-    compile 'org.ektorp:org.ektorp.android:1.4.2-SNAPSHOT'
+    compile 'org.ektorp:org.ektorp.android:1.4.2'
     compile files("src/${ant.lib}/crosswalk-${ant.properties['crosswalk-version']}/libs/xwalk_app_runtime_java.jar")
     compile files("src/${ant.lib}/android-4.0.1.2.jar")
 }
