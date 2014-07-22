@@ -87,6 +87,9 @@ public class ProxyDesktop  {
         Path applicationPath = file.toPath();
         Path webPath = applicationPath.getParent().getParent().resolve("web");
 
+        // Useful for debugging
+        // webPath = new File(new File(System.getProperty("user.dir")).getParent(), "web").toPath();
+
         try {
             server = new RelayWebServer(new JavaEktorpCreateClientBuilder(), webPath.toFile());
         } catch (Exception e) {
